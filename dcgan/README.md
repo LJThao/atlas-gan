@@ -8,7 +8,7 @@ dcgan/ -- Root folder for the project
   - base/ -- baseline DGAN model
   - exp1/ -- first experiment - architecture variations
   - exp2/ -- second experiment - hyperparameter tuning
-  - exp3/ -- third experiment - additional modifications
+  - exp3/ -- third experiment - precision changes
   - wandb/ -- logs and data for weights & biases tracking
   - dcgan.ipynb -- google colab notebook for training and testing
   - .gitignore -- specific files to ignore
