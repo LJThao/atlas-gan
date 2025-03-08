@@ -1,0 +1,912 @@
+2025-03-08 03:50:39,497 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_035039-iosew1ii/logs/debug.log
+2025-03-08 03:50:39,498 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_035039-iosew1ii/logs/debug-internal.log
+2025-03-08 03:50:39,498 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 03:50:39,498 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 03:50:39,498 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 03:50:39,498 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 03:50:39,499 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 03:50:39,499 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 03:50:39,515 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 03:50:40,224 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 03:50:40,229 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 90.0 second timeout
+2025-03-08 03:52:10,233 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 500, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 141, in wait_async
+    await asyncio.wait_for(evt.wait(), timeout=timeout)
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 502, in wait_for
+    raise exceptions.TimeoutError() from exc
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 946, in init
+    result = wait_with_progress(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 23, in wait_with_progress
+    return wait_all_with_progress(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 86, in wait_all_with_progress
+    return asyncio_compat.run(progress_loop_with_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 30, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 74, in run
+    return asyncio.run(self._run_or_cancel(fn))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 98, in _run_or_cancel
+    return fn_task.result()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 81, in progress_loop_with_timeout
+    return await _wait_handles_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 129, in _wait_handles_async
+    async with asyncio_compat.open_task_group() as task_group:
+  File "/usr/lib/python3.11/contextlib.py", line 217, in __aexit__
+    await anext(self.gen)
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 190, in open_task_group
+    await task_group._wait_all()
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 159, in _wait_all
+    raise exc
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 127, in wait_single
+    results[index] = await handle.wait_async(timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 150, in wait_async
+    raise TimeoutError(
+TimeoutError: Timed out waiting for response on xqadtnjwhnqe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 959, in init
+    raise CommError(
+wandb.errors.errors.CommError: Run initialization has timed out after 90.0 sec. Please try increasing the timeout with the `init_timeout` setting: `wandb.init(settings=wandb.Settings(init_timeout=120))`.
+2025-03-08 03:54:51,709 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_035451-kjdbusy5/logs/debug.log
+2025-03-08 03:54:51,709 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_035451-kjdbusy5/logs/debug-internal.log
+2025-03-08 03:54:51,710 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 03:54:51,710 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 03:54:51,710 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 03:54:51,710 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 03:54:51,712 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 03:54:51,713 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 03:54:51,723 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 03:54:52,260 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 03:54:52,265 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 120.0 second timeout
+2025-03-08 03:54:52,374 WARNING MsgRouterThr:1874 [router.py:message_loop():77] message_loop has been closed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 258, in _read_packet_bytes
+    data = self._sock.recv(self._bufsize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 28, in _read_message
+    resp = self._sock_client.read_server_response(timeout=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 285, in read_server_response
+    data = self._read_packet_bytes(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 262, in _read_packet_bytes
+    raise SockClientClosedError from e
+wandb.sdk.lib.sock_client.SockClientClosedError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router.py", line 70, in message_loop
+    msg = self._read_message()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 30, in _read_message
+    raise MessageRouterClosedError from e
+wandb.sdk.interface.router.MessageRouterClosedError
+2025-03-08 03:54:52,382 INFO    MsgRouterThr:1874 [mailbox.py:close():115] Closing mailbox, abandoning 1 handles.
+2025-03-08 03:54:52,383 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 946, in init
+    result = wait_with_progress(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 23, in wait_with_progress
+    return wait_all_with_progress(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 69, in wait_all_with_progress
+    return _wait_handles(handle_list, timeout=progress_after)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 109, in _wait_handles
+    results.append(handle.wait_or(timeout=remaining_timeout))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 117, in wait_or
+    raise HandleAbandonedError()
+wandb.sdk.mailbox.handles.HandleAbandonedError
+2025-03-08 03:57:15,808 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_035715-ocsfkxk7/logs/debug.log
+2025-03-08 03:57:15,808 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_035715-ocsfkxk7/logs/debug-internal.log
+2025-03-08 03:57:15,808 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 03:57:15,808 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 03:57:15,808 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 03:57:15,809 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 03:57:15,811 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 03:57:15,816 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 03:57:15,831 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 03:57:16,439 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 03:57:16,444 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 90.0 second timeout
+2025-03-08 03:57:16,498 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 968, in init
+    raise error
+wandb.errors.errors.CommError: failed to upsert bucket: returned error 403 Forbidden: {"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}],"data":{"upsertBucket":null}}
+2025-03-08 04:04:42,367 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_040442-neetpc3y/logs/debug.log
+2025-03-08 04:04:42,367 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_040442-neetpc3y/logs/debug-internal.log
+2025-03-08 04:04:42,367 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:04:42,368 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 04:04:42,368 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:04:42,368 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:04:42,371 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:04:42,374 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:04:42,395 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:04:47,412 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1214] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2025-03-08 04:04:47,413 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:04:47,419 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 90.0 second timeout
+2025-03-08 04:04:47,486 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 968, in init
+    raise error
+wandb.errors.errors.CommError: failed to upsert bucket: returned error 403 Forbidden: {"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}],"data":{"upsertBucket":null}}
+2025-03-08 04:06:56,480 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_040656-nwhhjrwm/logs/debug.log
+2025-03-08 04:06:56,480 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_040656-nwhhjrwm/logs/debug-internal.log
+2025-03-08 04:06:56,480 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:06:56,480 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 04:06:56,481 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:06:56,481 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:06:56,482 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:06:56,484 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:06:56,498 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:06:57,385 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:06:57,390 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 90.0 second timeout
+2025-03-08 04:08:27,394 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 500, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 141, in wait_async
+    await asyncio.wait_for(evt.wait(), timeout=timeout)
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 502, in wait_for
+    raise exceptions.TimeoutError() from exc
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 946, in init
+    result = wait_with_progress(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 23, in wait_with_progress
+    return wait_all_with_progress(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 86, in wait_all_with_progress
+    return asyncio_compat.run(progress_loop_with_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 30, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 74, in run
+    return asyncio.run(self._run_or_cancel(fn))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 98, in _run_or_cancel
+    return fn_task.result()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 81, in progress_loop_with_timeout
+    return await _wait_handles_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 129, in _wait_handles_async
+    async with asyncio_compat.open_task_group() as task_group:
+  File "/usr/lib/python3.11/contextlib.py", line 217, in __aexit__
+    await anext(self.gen)
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 190, in open_task_group
+    await task_group._wait_all()
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 159, in _wait_all
+    raise exc
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 127, in wait_single
+    results[index] = await handle.wait_async(timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 150, in wait_async
+    raise TimeoutError(
+TimeoutError: Timed out waiting for response on flv7fn2tef9x
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 959, in init
+    raise CommError(
+wandb.errors.errors.CommError: Run initialization has timed out after 90.0 sec. Please try increasing the timeout with the `init_timeout` setting: `wandb.init(settings=wandb.Settings(init_timeout=120))`.
+2025-03-08 04:09:01,628 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_040901-bymrcnfg/logs/debug.log
+2025-03-08 04:09:01,628 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_040901-bymrcnfg/logs/debug-internal.log
+2025-03-08 04:09:01,628 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:09:01,628 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 04:09:01,628 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:09:01,629 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:09:01,630 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:09:01,631 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:09:01,644 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:09:02,907 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:09:02,912 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 120.0 second timeout
+2025-03-08 04:09:02,979 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 968, in init
+    raise error
+wandb.errors.errors.CommError: failed to upsert bucket: returned error 403 Forbidden: {"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}],"data":{"upsertBucket":null}}
+2025-03-08 04:14:20,265 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_041420-tateemz4/logs/debug.log
+2025-03-08 04:14:20,265 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_041420-tateemz4/logs/debug-internal.log
+2025-03-08 04:14:20,265 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:14:20,266 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 04:14:20,266 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:14:20,266 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:14:20,267 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:14:20,268 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:14:20,278 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:14:21,473 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:14:21,480 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 90.0 second timeout
+2025-03-08 04:14:21,543 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 968, in init
+    raise error
+wandb.errors.errors.CommError: failed to upsert bucket: returned error 403 Forbidden: {"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}],"data":{"upsertBucket":null}}
+2025-03-08 04:15:19,572 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_041519-hang9d5a/logs/debug.log
+2025-03-08 04:15:19,572 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_041519-hang9d5a/logs/debug-internal.log
+2025-03-08 04:15:19,573 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:15:19,573 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 04:15:19,573 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:15:19,573 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:15:19,577 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:15:19,578 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:15:19,592 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:15:20,980 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:15:20,986 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 90.0 second timeout
+2025-03-08 04:16:50,990 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 500, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 141, in wait_async
+    await asyncio.wait_for(evt.wait(), timeout=timeout)
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 502, in wait_for
+    raise exceptions.TimeoutError() from exc
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 946, in init
+    result = wait_with_progress(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 23, in wait_with_progress
+    return wait_all_with_progress(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 86, in wait_all_with_progress
+    return asyncio_compat.run(progress_loop_with_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 30, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 74, in run
+    return asyncio.run(self._run_or_cancel(fn))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 98, in _run_or_cancel
+    return fn_task.result()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 81, in progress_loop_with_timeout
+    return await _wait_handles_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 129, in _wait_handles_async
+    async with asyncio_compat.open_task_group() as task_group:
+  File "/usr/lib/python3.11/contextlib.py", line 217, in __aexit__
+    await anext(self.gen)
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 190, in open_task_group
+    await task_group._wait_all()
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 159, in _wait_all
+    raise exc
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 127, in wait_single
+    results[index] = await handle.wait_async(timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 150, in wait_async
+    raise TimeoutError(
+TimeoutError: Timed out waiting for response on 4c2fgpuj5x5j
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 959, in init
+    raise CommError(
+wandb.errors.errors.CommError: Run initialization has timed out after 90.0 sec. Please try increasing the timeout with the `init_timeout` setting: `wandb.init(settings=wandb.Settings(init_timeout=120))`.
+2025-03-08 04:19:03,718 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_041903-nsdqlm5z/logs/debug.log
+2025-03-08 04:19:03,718 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_041903-nsdqlm5z/logs/debug-internal.log
+2025-03-08 04:19:03,719 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:19:03,719 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-03-08 04:19:03,719 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:19:03,719 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:19:03,721 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:19:03,722 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:19:03,742 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:19:04,399 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:19:04,404 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 120.0 second timeout
+2025-03-08 04:21:04,408 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 500, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 141, in wait_async
+    await asyncio.wait_for(evt.wait(), timeout=timeout)
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 502, in wait_for
+    raise exceptions.TimeoutError() from exc
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 946, in init
+    result = wait_with_progress(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 23, in wait_with_progress
+    return wait_all_with_progress(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 86, in wait_all_with_progress
+    return asyncio_compat.run(progress_loop_with_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 30, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 74, in run
+    return asyncio.run(self._run_or_cancel(fn))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 98, in _run_or_cancel
+    return fn_task.result()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 81, in progress_loop_with_timeout
+    return await _wait_handles_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 129, in _wait_handles_async
+    async with asyncio_compat.open_task_group() as task_group:
+  File "/usr/lib/python3.11/contextlib.py", line 217, in __aexit__
+    await anext(self.gen)
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 190, in open_task_group
+    await task_group._wait_all()
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 159, in _wait_all
+    raise exc
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 127, in wait_single
+    results[index] = await handle.wait_async(timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 150, in wait_async
+    raise TimeoutError(
+TimeoutError: Timed out waiting for response on c5dcyghj4w7s
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 959, in init
+    raise CommError(
+wandb.errors.errors.CommError: Run initialization has timed out after 120.0 sec. Please try increasing the timeout with the `init_timeout` setting: `wandb.init(settings=wandb.Settings(init_timeout=120))`.
+2025-03-08 04:23:23,614 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_042323-lnnhf1f1/logs/debug.log
+2025-03-08 04:23:23,614 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_042323-lnnhf1f1/logs/debug-internal.log
+2025-03-08 04:23:23,614 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:23:23,614 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'latent_dim': 100, 'batch_size': 64, 'learning_rate': 0.0002, 'num_epochs': 10, '_wandb': {}}
+2025-03-08 04:23:23,614 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:23:23,614 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:23:23,615 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:23:23,616 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:23:23,629 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:23:24,267 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:23:24,272 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 120.0 second timeout
+2025-03-08 04:23:25,276 WARNING MsgRouterThr:1874 [router.py:message_loop():77] message_loop has been closed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 258, in _read_packet_bytes
+    data = self._sock.recv(self._bufsize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 28, in _read_message
+    resp = self._sock_client.read_server_response(timeout=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 285, in read_server_response
+    data = self._read_packet_bytes(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 262, in _read_packet_bytes
+    raise SockClientClosedError from e
+wandb.sdk.lib.sock_client.SockClientClosedError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router.py", line 70, in message_loop
+    msg = self._read_message()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 30, in _read_message
+    raise MessageRouterClosedError from e
+wandb.sdk.interface.router.MessageRouterClosedError
+2025-03-08 04:23:25,276 WARNING MsgRouterThr:1874 [router.py:message_loop():77] message_loop has been closed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 258, in _read_packet_bytes
+    data = self._sock.recv(self._bufsize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 28, in _read_message
+    resp = self._sock_client.read_server_response(timeout=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 285, in read_server_response
+    data = self._read_packet_bytes(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 262, in _read_packet_bytes
+    raise SockClientClosedError from e
+wandb.sdk.lib.sock_client.SockClientClosedError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router.py", line 70, in message_loop
+    msg = self._read_message()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 30, in _read_message
+    raise MessageRouterClosedError from e
+wandb.sdk.interface.router.MessageRouterClosedError
+2025-03-08 04:23:25,277 WARNING MsgRouterThr:1874 [router.py:message_loop():77] message_loop has been closed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 258, in _read_packet_bytes
+    data = self._sock.recv(self._bufsize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 28, in _read_message
+    resp = self._sock_client.read_server_response(timeout=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 285, in read_server_response
+    data = self._read_packet_bytes(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 262, in _read_packet_bytes
+    raise SockClientClosedError from e
+wandb.sdk.lib.sock_client.SockClientClosedError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router.py", line 70, in message_loop
+    msg = self._read_message()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 30, in _read_message
+    raise MessageRouterClosedError from e
+wandb.sdk.interface.router.MessageRouterClosedError
+2025-03-08 04:23:25,277 WARNING MsgRouterThr:1874 [router.py:message_loop():77] message_loop has been closed
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 258, in _read_packet_bytes
+    data = self._sock.recv(self._bufsize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 28, in _read_message
+    resp = self._sock_client.read_server_response(timeout=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 285, in read_server_response
+    data = self._read_packet_bytes(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/sock_client.py", line 262, in _read_packet_bytes
+    raise SockClientClosedError from e
+wandb.sdk.lib.sock_client.SockClientClosedError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router.py", line 70, in message_loop
+    msg = self._read_message()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/interface/router_sock.py", line 30, in _read_message
+    raise MessageRouterClosedError from e
+wandb.sdk.interface.router.MessageRouterClosedError
+2025-03-08 04:23:25,280 INFO    MsgRouterThr:1874 [mailbox.py:close():115] Closing mailbox, abandoning 0 handles.
+2025-03-08 04:23:25,281 INFO    MsgRouterThr:1874 [mailbox.py:close():115] Closing mailbox, abandoning 2 handles.
+2025-03-08 04:23:25,281 INFO    MsgRouterThr:1874 [mailbox.py:close():115] Closing mailbox, abandoning 2 handles.
+2025-03-08 04:23:25,281 INFO    MsgRouterThr:1874 [mailbox.py:close():115] Closing mailbox, abandoning 0 handles.
+2025-03-08 04:25:24,276 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 500, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 141, in wait_async
+    await asyncio.wait_for(evt.wait(), timeout=timeout)
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 502, in wait_for
+    raise exceptions.TimeoutError() from exc
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 946, in init
+    result = wait_with_progress(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 23, in wait_with_progress
+    return wait_all_with_progress(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 86, in wait_all_with_progress
+    return asyncio_compat.run(progress_loop_with_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 30, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 74, in run
+    return asyncio.run(self._run_or_cancel(fn))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 98, in _run_or_cancel
+    return fn_task.result()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 81, in progress_loop_with_timeout
+    return await _wait_handles_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 129, in _wait_handles_async
+    async with asyncio_compat.open_task_group() as task_group:
+  File "/usr/lib/python3.11/contextlib.py", line 217, in __aexit__
+    await anext(self.gen)
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 190, in open_task_group
+    await task_group._wait_all()
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 159, in _wait_all
+    raise exc
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 127, in wait_single
+    results[index] = await handle.wait_async(timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 150, in wait_async
+    raise TimeoutError(
+TimeoutError: Timed out waiting for response on qc9bqww4emwi
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 959, in init
+    raise CommError(
+wandb.errors.errors.CommError: Run initialization has timed out after 120.0 sec. Please try increasing the timeout with the `init_timeout` setting: `wandb.init(settings=wandb.Settings(init_timeout=120))`.
+2025-03-08 04:27:46,865 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_042746-yf19b30e/logs/debug.log
+2025-03-08 04:27:46,866 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_042746-yf19b30e/logs/debug-internal.log
+2025-03-08 04:27:46,866 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:27:46,866 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'latent_dim': 100, 'batch_size': 64, 'learning_rate': 0.0002, 'num_epochs': 10, '_wandb': {}}
+2025-03-08 04:27:46,867 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:27:46,867 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:27:46,870 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:27:46,873 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:27:46,895 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:27:47,457 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:27:47,462 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 300.0 second timeout
+2025-03-08 04:32:47,466 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 500, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 141, in wait_async
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 502, in wait_for
+    raise exceptions.TimeoutError() from exc
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 946, in init
+    )
+      
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 23, in wait_with_progress
+    """
+        
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 86, in wait_all_with_progress
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 30, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 74, in run
+    return asyncio.run(self._run_or_cancel(fn))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 98, in _run_or_cancel
+    return fn_task.result()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 81, in progress_loop_with_timeout
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 129, in _wait_handles_async
+  File "/usr/lib/python3.11/contextlib.py", line 217, in __aexit__
+    await anext(self.gen)
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 190, in open_task_group
+    await task_group._wait_all()
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 159, in _wait_all
+    raise exc
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 127, in wait_single
+    handle = handle_list[index]
+                     ~~~^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 150, in wait_async
+TimeoutError: Timed out waiting for response on 8d30hpus89bu
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    if wl:
+           
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 959, in init
+wandb.errors.errors.CommError: Run initialization has timed out after 300.0 sec. Please try increasing the timeout with the `init_timeout` setting: `wandb.init(settings=wandb.Settings(init_timeout=120))`.
+2025-03-08 04:40:00,245 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /content/atlas-gan/wandb/run-20250308_044000-5atto3li/logs/debug.log
+2025-03-08 04:40:00,246 INFO    MainThread:1874 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /content/atlas-gan/wandb/run-20250308_044000-5atto3li/logs/debug-internal.log
+2025-03-08 04:40:00,246 INFO    MainThread:1874 [wandb_init.py:init():761] calling init triggers
+2025-03-08 04:40:00,246 INFO    MainThread:1874 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'latent_dim': 100, 'batch_size': 64, 'learning_rate': 0.0002, 'num_epochs': 10, '_wandb': {}}
+2025-03-08 04:40:00,247 INFO    MainThread:1874 [wandb_init.py:init():784] starting backend
+2025-03-08 04:40:00,247 INFO    MainThread:1874 [wandb_init.py:init():788] sending inform_init request
+2025-03-08 04:40:00,249 INFO    MainThread:1874 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-08 04:40:00,249 INFO    MainThread:1874 [wandb_init.py:init():803] backend started and connected
+2025-03-08 04:40:00,261 INFO    MainThread:1874 [wandb_run.py:_label_probe_notebook():1204] probe notebook
+2025-03-08 04:40:01,095 INFO    MainThread:1874 [wandb_init.py:init():896] updated telemetry
+2025-03-08 04:40:01,101 INFO    MainThread:1874 [wandb_init.py:init():920] communicating run to backend with 300.0 second timeout
+2025-03-08 04:45:01,105 ERROR   MainThread:1874 [wandb_init.py:init():1481] error in wandb.init()
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 500, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 141, in wait_async
+  File "/usr/lib/python3.11/asyncio/tasks.py", line 502, in wait_for
+    raise exceptions.TimeoutError() from exc
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 946, in init
+    )
+      
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 23, in wait_with_progress
+    """
+        
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 86, in wait_all_with_progress
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 30, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 74, in run
+    return asyncio.run(self._run_or_cancel(fn))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 98, in _run_or_cancel
+    return fn_task.result()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 81, in progress_loop_with_timeout
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 129, in _wait_handles_async
+  File "/usr/lib/python3.11/contextlib.py", line 217, in __aexit__
+    await anext(self.gen)
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 190, in open_task_group
+    await task_group._wait_all()
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/lib/asyncio_compat.py", line 159, in _wait_all
+    raise exc
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/wait_with_progress.py", line 127, in wait_single
+    handle = handle_list[index]
+                     ~~~^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/mailbox/handles.py", line 150, in wait_async
+TimeoutError: Timed out waiting for response on czgm42oggkgc
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 1471, in init
+    if wl:
+           
+  File "/usr/local/lib/python3.11/dist-packages/wandb/sdk/wandb_init.py", line 959, in init
+wandb.errors.errors.CommError: Run initialization has timed out after 300.0 sec. Please try increasing the timeout with the `init_timeout` setting: `wandb.init(settings=wandb.Settings(init_timeout=120))`.
