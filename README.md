@@ -4,10 +4,10 @@ This repository explores Generative Adversarial Networks (GANs), starting with a
 The goal was to improve generation quality and training stability while experimenting with deeper generator/discriminator layers and varying batch sizes, activation functions, and optimizers. This project serves as a hands-on deep dive into the evolution of generative models from foundational GANs to more robust architectures.
 
 ## Author and Acknowledgement
-- LJ Thao - [Github](https://github.com/LJThao) [LinkedIn](https://www.linkedin.com/in/LJThao)
-```
+- LJ Thao - [Github](https://github.com/LJThao) | [LinkedIn](https://www.linkedin.com/in/LJThao)
+
 ML engineer with a focus on generative models, deep learning, and AI experimentation.
-```
+
 
 ## Sample Output (Epoch 200)
 
